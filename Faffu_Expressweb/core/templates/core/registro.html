@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+        
+        <section class="form-login">
+            <input class="txt" type="text" placeholder="Nombre">
+            <input class="txt" type="text" placeholder="Apellido">
+            <input class="txt" type="text" placeholder="Email">
+            <input class="txt" type="text" placeholder="Calular/WhatsApp">
+            <input class="txt" type="text" placeholder="Contraseña">
+            <br><p><input class="enviar" type="submit" value="Registrar"></p><br>
+            <p class="cuenta1"><a href="{% url 'login' %}">¿Ya tengo Cuenta?</a></p>
+            <p class="cuenta1"><a href="{% url 'menu' %}">Inicio</a></p>
+        </section>
+
+        <script src="" async defer></script>
+</body>
+</html>
