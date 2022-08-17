@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
-    'login.apps.LoginConfig',
-    'registro',
 ]
 
 #LOGIN_REDIRECT_URL = 'menu/'
@@ -124,3 +122,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 5
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'login'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.fields.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'fmero5234@utm.edu.ec'
+EMAIL_HOST_PASSWORD = 'Fernanflo23'

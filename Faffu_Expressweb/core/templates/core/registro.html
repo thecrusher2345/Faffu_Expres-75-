@@ -1,27 +1,54 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
+{% load static %}
     <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
-    <title>Document</title>
-</head>
-<body>
-        
-        <section class="form-login">
-            <input class="txt" type="text" placeholder="Nombre">
-            <input class="txt" type="text" placeholder="Apellido">
-            <input class="txt" type="text" placeholder="Email">
-            <input class="txt" type="text" placeholder="Calular/WhatsApp">
-            <input class="txt" type="text" placeholder="Contraseña">
-            <br><p><input class="enviar" type="submit" value="Registrar"></p><br>
-            <p class="cuenta1"><a href="{% url 'login' %}">¿Ya tengo Cuenta?</a></p>
-            <p class="cuenta1"><a href="{% url 'menu' %}">Inicio</a></p>
-        </section>
-
-        <script src="" async defer></script>
-</body>
-</html>
+<div class="form">
+<div class="form-panel one">
+    <div class="form-header">
+    <h1>Register Account</h1>
+    </div>
+    <div class="form-content">
+    <form action="#" method="post">
+    {% csrf_token %}
+        {% if form.errors %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+            <div id="form_errors">
+                {% for key, value in form.errors.items %}
+                <strong>{{ value }}</strong>
+                {% endfor %}
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label for="name">Nombre <span>*</span></label>
+            <input type="text" name="{{ form.first_name.name }}" id="name" value="" size="22">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name <span>*</span></label>
+            <input type="text" name="{{ form.last_name.name}}" id="last_name" value="" size="22">
+        </div>
+        <div class="form-group">
+        <label for="name">Username<span>*</span></label>
+        <input id="username" type="text" name="{{ form.username.name }}" required="required"/>
+        </div>
+        <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" name="{{ form.password1.name }}" required="required"/>
+        </div>
+        <div class="form-group">
+        <label for="cpassword">Confirm Password</label>
+        <input id="cpassword" type="password" name="{{ form.password2.name }}" required="required"/>
+        </div>
+        <div class="form-group">
+        <label for="email">Email Address</label>
+        <input id="email" type="email" name="{{ form.email.name }}" required="required"/>
+        </div>
+        <div class="form-group">
+        <button type="submit">Register</button>
+        <p>¿Ya tienes una cuenta? Ingresa <a href="{% url 'login' %}"> Aquí </a></p>
+        </div>
+    </form>
+    </div>
+</div>
